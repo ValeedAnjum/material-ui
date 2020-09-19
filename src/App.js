@@ -4,7 +4,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Button>This is button component</Button>
+      <Button color="primary" variant="contained">
+        This is button component
+      </Button>
     </div>
   );
 }
