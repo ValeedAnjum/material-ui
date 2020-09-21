@@ -5,7 +5,7 @@ import "./App.css";
 const useStyles = makeStyles({
   thereStyle: {
     color: "blue",
-    fontSize: "30px",
+    // fontSize: "30px",
   },
   buttonStyle: {
     color: "green",
@@ -15,8 +15,8 @@ function App() {
   const classes = useStyles();
   return (
     <div className="App">
-      <Typography color="primary" className={classes.thereStyle}>
-        <h1>Hello Anjum</h1>
+      <Typography variant="h1" color="primary" className={classes.thereStyle}>
+        Hello Anjum
       </Typography>
       <Button
         color="primary"
