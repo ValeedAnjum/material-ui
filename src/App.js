@@ -1,25 +1,22 @@
 import { Button } from "@material-ui/core";
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import "./App.css";
 
+const useStlyes = makeStyles((theme) => ({
+  button: {
+    backgroundColor: "red",
+    [theme.breakpoints.up("sm")]: {
+      backgroundColor: "blue",
+    },
+  },
+}));
 function App() {
+  const classes = useStlyes();
   return (
     <div className="App">
-      <Button variant="contained">Default</Button>
-      <Button variant="contained" color="primary">
-        Primary
-      </Button>
-      <Button variant="contained" color="secondary">
-        Secondary
-      </Button>
-      <Button variant="contained" disabled>
-        Disabled
-      </Button>
-      <Button variant="contained" color="primary" href="#contained-buttons">
-        Link
-      </Button>
-      <Button variant="contained" color="primary" disableElevation>
-        Disable elevation
+      <Button variant="contained" className={classes.button} color="primary">
+        Default
       </Button>
     </div>
   );
