@@ -1,6 +1,6 @@
-import { Button } from "@material-ui/core";
+import { Button, Paper } from "@material-ui/core";
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import "./App.css";
 
 const useStlyes = makeStyles((theme) => ({
@@ -13,12 +13,14 @@ const useStlyes = makeStyles((theme) => ({
 }));
 function App() {
   const classes = useStlyes();
+  const theme = useTheme();
+  console.log(theme);
   return (
-    <div className="App">
+    <Paper>
       <Button variant="contained" className={classes.button} color="primary">
         Default
       </Button>
-    </div>
+    </Paper>
   );
 }
 
