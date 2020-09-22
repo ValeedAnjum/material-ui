@@ -1,26 +1,31 @@
-import { Button, Paper } from "@material-ui/core";
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import { Button, Grid, Paper, Switch, Typography } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import "./App.css";
 
-const useStlyes = makeStyles((theme) => ({
-  button: {
-    backgroundColor: "red",
-    [theme.breakpoints.up("sm")]: {
-      backgroundColor: "blue",
-    },
-  },
-}));
 function App() {
-  const classes = useStlyes();
-  const theme = useTheme();
-  console.log(theme);
+  const [darkMode, setdarkMode] = useState(false);
+
+  const theme = createMuiTheme({
+    palette: {
+      type: darkMode ? "dark" : "light",
+    },
+  });
   return (
-    <Paper>
-      <Button variant="contained" className={classes.button} color="primary">
-        Default
-      </Button>
-    </Paper>
+    <ThemeProvider theme={theme}>
+      <Paper style={{ height: "100vh" }}>
+        <Grid container direction="column">
+          <Typography>I am Typography</Typography>
+          <Button variant="contained" color="secondary">
+            This is secondary
+          </Button>
+          <Button variant="contained" color="primary">
+            This is primary
+          </Button>
+          <Switch checked={darkMode} onClick={() => setdarkMode(!darkMode)} />
+        </Grid>
+      </Paper>
+    </ThemeProvider>
   );
 }
 
