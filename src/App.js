@@ -1,31 +1,43 @@
-import React, { useState } from "react";
-import { Button, Grid, Paper, Switch, Typography } from "@material-ui/core";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import "./App.css";
+import {
+  Grid,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@material-ui/core";
+import React from "react";
 
 function App() {
-  const [darkMode, setdarkMode] = useState(false);
-
-  const theme = createMuiTheme({
-    palette: {
-      type: darkMode ? "dark" : "light",
-    },
-  });
   return (
-    <ThemeProvider theme={theme}>
-      <Paper style={{ height: "100vh" }}>
-        <Grid container direction="column">
-          <Typography>I am Typography</Typography>
-          <Button variant="contained" color="secondary">
-            This is secondary
-          </Button>
-          <Button variant="contained" color="primary">
-            This is primary
-          </Button>
-          <Switch checked={darkMode} onClick={() => setdarkMode(!darkMode)} />
-        </Grid>
-      </Paper>
-    </ThemeProvider>
+    <Grid container justify="center">
+      <Grid item sm={8}>
+        <TableContainer component={Paper} style={{ margin: "10px" }}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Dessert (100g serving)</TableCell>
+                <TableCell align="right">Calories</TableCell>
+                <TableCell align="right">Fat (g)</TableCell>
+                <TableCell align="right">Carbs (g)</TableCell>
+                <TableCell align="right">Protein (g)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>Anjum</TableCell>
+                <TableCell align="right">40</TableCell>
+                <TableCell align="right">32.3</TableCell>
+                <TableCell align="right">54</TableCell>
+                <TableCell align="right">3</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+    </Grid>
   );
 }
 
