@@ -25,9 +25,9 @@ const rows = [
 function App() {
   return (
     <Grid container justify="center">
-      <Grid item sm={8}>
+      <Grid item xs={8}>
         <TableContainer component={Paper} style={{ margin: "10px" }}>
-          <Table aria-label="simple table">
+          <Table style={{ minWidth: "650px" }} size="small">
             <TableHead>
               <TableRow>
                 <TableCell>Dessert (100g serving)</TableCell>
