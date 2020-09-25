@@ -3,28 +3,55 @@ import {
   Drawer as MUIDrawer,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
+import MailIcon from "@material-ui/icons/Mail";
+import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
+import { withRouter } from "react-router-dom";
+
 const useStyles = makeStyles({
   drawer: {
-    width: "160px",
-    border: "1px solid red",
+    width: "190px",
+  },
+  list: {
+    width: "180px",
   },
 });
-const Drawer = () => {
+
+const Drawer = (props) => {
   const classes = useStyles();
+  const { history } = props;
+
+  const listItem = [
+    { text: "Home", icon: <MailIcon />, onClick: () => history.push("/") },
+    {
+      text: "About",
+      icon: <MenuIcon />,
+      onClick: () => history.push("/about"),
+    },
+    {
+      text: "Contact",
+      icon: <MailIcon />,
+      onClick: () => history.push("/contact"),
+    },
+  ];
   return (
     <MUIDrawer variant="permanent" className={classes.drawer}>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <List className={classes.list}>
+        {listItem.map((item, index) => {
+          const { text, icon, onClick } = item;
+          return (
+            <ListItem button key={text} onClick={onClick}>
+              <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          );
+        })}
       </List>
     </MUIDrawer>
   );
 };
 
-export default Drawer;
+export default withRouter(Drawer);
