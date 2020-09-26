@@ -1,26 +1,39 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 import About from "./About";
-import Contact from "./Contact";
-import Drawer from "./Drawer";
+import Breadcrumbs from "./Breadcrumbs";
+import Designer from "./Designer";
+import Engineer from "./Engineer";
 import Home from "./Home";
-import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles({
-  container: {
-    display: "flex",
-  },
-});
+import Jobs from "./Jobs";
+import Marketer from "./Marketer";
+
 const App = () => {
-  const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <Drawer />
+    <Fragment>
+      <Breadcrumbs />
       <Switch>
-        <Route path="/" exact render={(props) => <Home {...props} />} />
-        <Route path="/about" render={(props) => <About {...props} />} />
-        <Route path="/contact" render={(props) => <Contact {...props} />} />
+        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/about" render={(props) => <About {...props} />} />
+        <Route exact path="/jobs" render={(props) => <Jobs {...props} />} />
+        <Route
+          exact
+          path="/jobs/engineer"
+          render={(props) => <Engineer {...props} />}
+        />
+        <Route
+          exact
+          path="/jobs/marketer"
+          render={(props) => <Marketer {...props} />}
+        />
+        <Route
+          exact
+          path="/jobs/designer"
+          render={(props) => <Designer {...props} />}
+        />
       </Switch>
-    </div>
+    </Fragment>
   );
 };
+
 export default App;
