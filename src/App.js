@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
-import Appbar from "./Appbar";
-import LeftMenu from "./Drawer";
+import Layout from "./Layout";
 
 const App = () => {
   return (
     <Fragment>
-      <Appbar />
-      <LeftMenu />
+      <Layout />
     </Fragment>
   );
 };
