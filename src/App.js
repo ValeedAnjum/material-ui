@@ -1,13 +1,30 @@
-import { AppBar, MenuItem, TextField, Toolbar } from "@material-ui/core";
+import {
+  AppBar,
+  FormControl,
+  Input,
+  InputAdornment,
+  InputLabel,
+  MenuItem,
+  TextField,
+  Toolbar,
+} from "@material-ui/core";
 import React, { Fragment } from "react";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const App = () => {
   return (
     <Fragment>
-      <TextField select variant="outlined">
-        <MenuItem value="I am value">I am option</MenuItem>
-        <MenuItem value="I am value 2">I am option 2</MenuItem>
-      </TextField>
+      <FormControl style={{ margin: "20px" }}>
+        <InputLabel>I am label</InputLabel>
+        <Input
+          id="input-with-icon"
+          startAdornment={
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
     </Fragment>
   );
 };
