@@ -1,44 +1,60 @@
 import {
   AppBar,
-  FormControl,
+  Button,
   IconButton,
-  Input,
-  InputAdornment,
-  InputLabel,
+  Menu,
   MenuItem,
-  TextField,
   Toolbar,
+  Typography,
 } from "@material-ui/core";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import Visibility from "@material-ui/icons/Visibility";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import AppsIcon from "@material-ui/icons/Apps";
+import VideoCallIcon from "@material-ui/icons/VideoCall";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const App = () => {
+  const [anchorEl, setanchorEl] = useState(null);
+
+  const menuOpen = (event) => {
+    setanchorEl(event.target);
+  };
+  const menuClose = () => {
+    setanchorEl(null);
+  };
   return (
     <Fragment>
-      <FormControl style={{ margin: "50px" }}>
-        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-        <Input
-          id="standard-adornment-password"
-          type="text"
-          value={""}
-          onChange={() => {
-            console.log("Input on chnage");
-          }}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                // onClick={handleClickShowPassword}
-                // onMouseDown={handleMouseDownPassword}
-              >
-                {/* {values.showPassword ? <Visibility /> : <VisibilityOff />} */}
-                <Visibility />
-              </IconButton>
-            </InputAdornment>
-          }
-        />
-      </FormControl>
+      <AppBar position="static" style={{ backgroundColor: "white" }}>
+        <Toolbar>
+          <div style={{ flexGrow: "1" }}>
+            <IconButton onClick={menuOpen}>
+              <MenuIcon color="action" />
+            </IconButton>
+          </div>
+          <IconButton>
+            <VideoCallIcon color="action" />
+          </IconButton>
+          <IconButton>
+            <AppsIcon color="action" />
+          </IconButton>
+          <IconButton>
+            <NotificationsIcon color="action" />
+          </IconButton>
+          <IconButton onClick={menuOpen}>
+            <AccountCircle color="action" />
+          </IconButton>
+          <Menu
+            open={Boolean(anchorEl)}
+            anchorEl={anchorEl}
+            onClose={menuClose}
+          >
+            <MenuItem>
+              <Typography>Valeed Anum</Typography>
+            </MenuItem>
+          </Menu>
+        </Toolbar>
+      </AppBar>
     </Fragment>
   );
 };
