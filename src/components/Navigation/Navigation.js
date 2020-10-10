@@ -1,12 +1,7 @@
 import React, { Fragment } from "react";
-import {
-  AppBar,
-  IconButton,
-  Toolbar,
-} from "@material-ui/core";
+import { AppBar, IconButton, Toolbar } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import YouTubeIcon from "./YouTubeIcon";
-
 
 const Navigation = () => {
   return (
@@ -18,7 +13,7 @@ const Navigation = () => {
       >
         <Toolbar>
           <IconButton edge="start" aria-label="menu">
-             <MenuIcon />
+            <MenuIcon />
           </IconButton>
           <div style={{ width: "80px" }}>
             <YouTubeIcon />

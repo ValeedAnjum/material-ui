@@ -1,7 +1,7 @@
 import { Grid, makeStyles, useTheme } from "@material-ui/core";
 import React from "react";
-import Relatedvideos from "./Relatedvideos";
-import Videoplayanddetails from "./Videoplayanddetails";
+import Relatedvideos from "../components/Relatedvideos/Relatedvideos";
+import Videoplayanddetails from "../components/Videoplayingdetails/Videoplayanddetails";
 
 const useStyles = makeStyles((theme) => {
   return {

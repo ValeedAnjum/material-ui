@@ -16,14 +16,9 @@ const Content = () => {
   const classes = useStyles(theme);
   return (
     <div className={classes.root}>
-      <Grid container  spacing={2}>
+      <Grid container spacing={2}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((num) => (
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            key={num}
-          >
+          <Grid item xs={12} sm={3} key={num}>
             <VideoCard />
           </Grid>
         ))}

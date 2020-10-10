@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./Home";
-import Navigation from "./Navigation";
-import Play from "./Play";
+import Home from "./Views/Home";
+import Navigation from "./components/Navigation/Navigation";
+import Play from "./Views/Play";
 
 const App = () => {
   return (
