@@ -15,6 +15,7 @@ const useStyles = makeStyles(() => {
     },
   };
 });
+
 const Relatedvideos = () => {
   const classes = useStyles();
   return (
@@ -32,33 +33,35 @@ const Relatedvideos = () => {
         </Grid>
       </Grid>
       <Grid item container>
-        {[
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-        ].map((num) => (
+        {numArr.map((num) => (
           <Relatedvideocard key={num} />
         ))}
       </Grid>
     </Fragment>
   );
 };
+
+const numArr = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+];
 
 export default Relatedvideos;
