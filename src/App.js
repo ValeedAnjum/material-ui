@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
-import Buttonc from "./Button";
-
+import Appbar from "./components/Appbar/Appbar";
 const App = () => {
   return (
     <Fragment>
-      <Buttonc />
+      <Appbar />
     </Fragment>
   );
 };
